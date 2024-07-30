@@ -1,5 +1,6 @@
 package com.example.dischord.global.config;
 
+import com.example.dischord.global.jwt.JWTFilter;
 import com.example.dischord.global.jwt.JWTUtil;
 import com.example.dischord.global.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
@@ -51,9 +52,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
                         .requestMatchers("/login", "/").permitAll()
-                        .anyRequest().permitAll())
+                        .anyRequest().authenticated())
 
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class)
+                .addFilterAt(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
