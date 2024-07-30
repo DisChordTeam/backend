@@ -4,6 +4,7 @@ spring:
     url: ${RDS_URL}
     username: ${RDS_USERNAME}
     password: ${RDS_PASSWORD}
+
   jpa:
     properties:
       hibernate:
@@ -13,3 +14,6 @@ spring:
         generate_statistics: true
     hibernate:
       ddl-auto: update
+
+  jwt:
+    secret: ${SECRET_KEY}

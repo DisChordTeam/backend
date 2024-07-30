@@ -1,6 +1,7 @@
 package com.example.dischord.user.service;
 
 
+
 import com.example.dischord.global.exception.BadRequestException;
 import com.example.dischord.global.exception.DuplicateException;
 import com.example.dischord.user.entity.User;
@@ -8,7 +9,6 @@ import com.example.dischord.user.repository.UserRepository;
 import com.example.dischord.user.requestDto.UserSignupRequestDto;
 import com.example.dischord.user.responseDto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +22,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
 
     public UserResponseDto signupUser(UserSignupRequestDto requestDto) {
 
@@ -55,4 +56,6 @@ public class UserService {
 
         userRepository.delete(user);
     }
+
+
 }

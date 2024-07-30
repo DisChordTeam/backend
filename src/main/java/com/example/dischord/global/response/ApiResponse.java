@@ -24,14 +24,17 @@ public class ApiResponse<T> {
     private T data;
 
     public static <T> ApiResponse<T> ok(T data) {
+
         return new ApiResponse<>(200, null, data);
     }
 
     public static ApiResponse<?> ok() {
+
         return new ApiResponse<>(200, null, null);
     }
 
     public static ApiResponse<ExceptionResponse> error(int errorCode, String message) {
+
         return new ApiResponse<>(errorCode, message, null);
     }
 
