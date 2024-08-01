@@ -3,8 +3,6 @@ package com.example.dischord.global.jwt;
 
 import com.example.dischord.global.security.CustomUserDetails;
 import com.example.dischord.user.entity.User;
-import com.example.dischord.user.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -59,5 +57,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
         response.setStatus(401);
+        //메세지등등 추가
     }
 }
