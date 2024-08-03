@@ -35,6 +35,8 @@ public class User extends BaseEntity {
     private UserStateType userState;
 
 
+
+
     @Builder
     public User(String email, String password, String nickname) {
         this.email = email;
